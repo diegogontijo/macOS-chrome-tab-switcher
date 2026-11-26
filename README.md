@@ -9,7 +9,7 @@ Hold <kbd>Ctrl</kbd>, tap <kbd>Tab</kbd> to walk back through your tabs in the o
 Makes Chrome's <kbd>Ctrl</kbd>+<kbd>Tab</kbd> switch to your **most recently used tab** (MRU),
 like Zen Browser and Firefox, instead of the next tab to the right.
 
-[**Website**](https://diegogontijo.github.io/macOS-chrome-tab-switcher/) · [**Download**](https://github.com/diegogontijo/macOS-chrome-tab-switcher/releases/latest) · [**FAQ**](#-faq)
+[**Download**](https://github.com/diegogontijo/macOS-chrome-tab-switcher/releases/latest) · [**FAQ**](#-faq)
 
 ![macOS](https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white)
 ![Chrome](https://img.shields.io/badge/Chrome-121%2B-4285F4?style=flat-square&logo=googlechrome&logoColor=white)

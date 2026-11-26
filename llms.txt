@@ -16,7 +16,6 @@ Key facts:
 ## Docs
 
 - [README](https://github.com/diegogontijo/macOS-chrome-tab-switcher/blob/main/README.md): features, installation, FAQ
-- [Website](https://diegogontijo.github.io/macOS-chrome-tab-switcher/): overview and FAQ
 - [Latest release](https://github.com/diegogontijo/macOS-chrome-tab-switcher/releases/latest): extension zip and Karabiner rule
 
 ## Source
