@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://diegogontijo.github.io/macOS-chrome-tab-switcher/sitemap.xml
