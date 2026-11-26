@@ -6,6 +6,11 @@
 
 Hold <kbd>Ctrl</kbd>, tap <kbd>Tab</kbd> to walk back through your tabs in the order you used them, release to jump.
 
+Makes Chrome's <kbd>Ctrl</kbd>+<kbd>Tab</kbd> switch to your **most recently used tab** (MRU),
+like Zen Browser and Firefox, instead of the next tab to the right.
+
+[**Website**](https://diegogontijo.github.io/macOS-chrome-tab-switcher/) · [**Download**](https://github.com/diegogontijo/macOS-chrome-tab-switcher/releases/latest) · [**FAQ**](#-faq)
+
 ![macOS](https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white)
 ![Chrome](https://img.shields.io/badge/Chrome-121%2B-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-34A853?style=flat-square)
@@ -152,6 +157,63 @@ python3 -m http.server 8765 --bind 127.0.0.1
 Then open `http://127.0.0.1:8765/test/preview.html`.
 
 After changing the extension, hit **reload** on its card in `chrome://extensions`.
+
+## ❓ FAQ
+
+### How do I make Ctrl+Tab switch to the last used tab in Google Chrome?
+
+Chrome's <kbd>Ctrl</kbd>+<kbd>Tab</kbd> always goes to the next tab on the right,
+and there is no setting to change it. Tabber changes that on macOS: install
+Karabiner-Elements, enable the Tabber rule and load the extension
+([installation](#-installation)). After that, <kbd>Ctrl</kbd>+<kbd>Tab</kbd> takes
+you to the tab you used before, in most recently used order.
+
+### Can I get Zen Browser's (or Firefox's) Ctrl+Tab behavior in Chrome?
+
+Yes, that's exactly what Tabber does. Hold <kbd>Ctrl</kbd>, tap <kbd>Tab</kbd> to
+move through your recent tabs in an on-screen list, and release <kbd>Ctrl</kbd> to
+switch. It mirrors Firefox's *"Ctrl+Tab cycles through tabs in recently used order"*
+option, which Zen Browser uses.
+
+### Why can't a Chrome extension use Ctrl+Tab on its own?
+
+Chrome reserves <kbd>Ctrl</kbd>+<kbd>Tab</kbd>: the `chrome.commands` API doesn't
+accept the Tab key, and web pages never receive the shortcut. Tabber works around
+this with Karabiner-Elements, which catches <kbd>Ctrl</kbd>+<kbd>Tab</kbd> at the
+system level (only while Chrome is in front) and forwards it to the extension.
+
+### How do I switch back to the previous tab in Chrome on a Mac?
+
+With Tabber, a quick <kbd>Ctrl</kbd>+<kbd>Tab</kbd> toggles between your two most
+recent tabs, like <kbd>⌘</kbd>+<kbd>Tab</kbd> does for apps.
+
+### Is this the same as Chrome's tab search (⌘+Shift+A)?
+
+No. Tab search is a searchable list you type into. Tabber is the quick
+hold-and-release switcher for jumping between the tabs you just used.
+
+### Does it work on Windows or Linux?
+
+Not yet. The extension itself is platform independent, but the
+<kbd>Ctrl</kbd>+<kbd>Tab</kbd> remap currently ships only as a Karabiner-Elements
+rule, which is macOS only.
+
+### Does it work in Brave, Edge, Arc or other Chromium browsers?
+
+Not tested. The extension should load in Chromium-based browsers, but the
+Karabiner rule only targets Google Chrome. Adding the browser's bundle identifier
+to `karabiner/tabber.json` is the starting point.
+
+### Does it collect data or need access to all my websites?
+
+No. It makes no network requests and stores nothing. It only uses `tabs`,
+`scripting` + `activeTab` (granted by the shortcut itself) and `favicon`. See
+[permissions](#-permissions).
+
+### Do I need to keep Karabiner-Elements open?
+
+No. You can close its window (even with <kbd>⌘</kbd>+<kbd>Q</kbd>). Its background
+services keep running and start automatically at login.
 
 ## 📝 Notes
 
