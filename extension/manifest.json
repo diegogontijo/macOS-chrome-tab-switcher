@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Tabber",
+  "version": "1.0.0",
+  "description": "zen-style ctrl+tab: switch tabs in recently used order, with an on-screen list. works together with the karabiner rule.",
+  "minimum_chrome_version": "121",
+  "permissions": ["tabs", "scripting", "activeTab", "favicon"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "mru-next": {
+      "suggested_key": { "default": "Ctrl+Shift+1", "mac": "MacCtrl+Shift+1" },
+      "description": "previous tab (karabiner sends this on ctrl+tab)"
+    },
+    "mru-prev": {
+      "suggested_key": { "default": "Ctrl+Shift+2", "mac": "MacCtrl+Shift+2" },
+      "description": "move back up the list (karabiner sends this on ctrl+shift+tab)"
+    },
+    "mru-commit": {
+      "suggested_key": { "default": "Ctrl+Shift+3", "mac": "MacCtrl+Shift+3" },
+      "description": "confirm (karabiner sends this when ctrl is released)"
+    },
+    "mru-cancel": {
+      "suggested_key": { "default": "Ctrl+Shift+4", "mac": "MacCtrl+Shift+4" },
+      "description": "cancel (karabiner sends this on ctrl+esc)"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["_favicon/*"],
+      "matches": ["<all_urls>"],
+      "extension_ids": ["*"]
+    }
+  ]
+}
