@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tabber</title>
+    <style>
+      html, body {
+        margin: 0;
+        height: 100%;
+        background: #202024;
+        overflow: hidden;
+      }
+      @media (prefers-color-scheme: light) {
+        html, body { background: #fafafc; }
+      }
+      #root { height: 100%; }
+      #root .tb-panel {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        max-height: none;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+      }
+    </style>
+    <script src="ui.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="fallback.js"></script>
+  </body>
+</html>
