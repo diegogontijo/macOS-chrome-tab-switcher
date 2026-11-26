@@ -1,0 +1,14 @@
+<!doctype html><html><head><title>tabber list preview</title><meta charset="utf-8"><script src="../extension/ui.js"></script>
+<style>body{margin:0;height:100vh;background:linear-gradient(135deg,#4a6fa5,#c06c84);font-family:sans-serif}</style></head>
+<body><h1 style="color:white;padding:40px">sample page behind the list</h1>
+<script>
+const s=document.createElement('style');s.textContent=TabberUI.CSS+'.tb-wrap{position:fixed;inset:0;display:flex;justify-content:center;align-items:flex-start;padding-top:18vh}';document.head.append(s);
+const w=document.createElement('div');w.className='tb-wrap';document.body.append(w);
+const l=TabberUI.createList(w,{onPick:i=>console.log(i)});
+l.render([
+{id:1,title:'Inbox (3) - Gmail',host:'mail.google.com'},
+{id:2,title:'GitHub - tabber-browser',host:'github.com',audible:false},
+{id:3,title:'YouTube - Lo-fi beats',host:'youtube.com',audible:true},
+{id:4,title:'Settings',host:'chrome://settings',pinned:true},
+{id:5,title:'Stack Overflow - How to use chrome.commands',host:'stackoverflow.com'}],2);
+</script></body></html>
