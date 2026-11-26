@@ -1,0 +1,83 @@
+{
+  "title": "Tabber: zen-style ctrl+tab in google chrome",
+  "rules": [
+    {
+      "description": "Tabber: ctrl+tab in recently used order in chrome (hold ctrl, release to confirm)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": { "mandatory": ["control", "shift"], "optional": ["caps_lock"] }
+          },
+          "to": [
+            { "set_variable": { "name": "tabber_active", "value": 1 } },
+            { "key_code": "2", "modifiers": ["left_control", "left_shift"] }
+          ],
+          "conditions": [
+            { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": { "mandatory": ["control"], "optional": ["caps_lock"] }
+          },
+          "to": [
+            { "set_variable": { "name": "tabber_active", "value": 1 } },
+            { "key_code": "1", "modifiers": ["left_control", "left_shift"] }
+          ],
+          "conditions": [
+            { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": { "mandatory": ["control"], "optional": ["caps_lock", "shift"] }
+          },
+          "to": [
+            { "set_variable": { "name": "tabber_active", "value": 0 } },
+            { "key_code": "4", "modifiers": ["left_control", "left_shift"] }
+          ],
+          "conditions": [
+            { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] },
+            { "type": "variable_if", "name": "tabber_active", "value": 1 }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [{ "key_code": "left_control" }],
+          "to_after_key_up": [
+            { "set_variable": { "name": "tabber_active", "value": 0 } },
+            { "key_code": "3", "modifiers": ["left_control", "left_shift"] }
+          ],
+          "conditions": [
+            { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_control",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [{ "key_code": "right_control" }],
+          "to_after_key_up": [
+            { "set_variable": { "name": "tabber_active", "value": 0 } },
+            { "key_code": "3", "modifiers": ["left_control", "left_shift"] }
+          ],
+          "conditions": [
+            { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }
+          ]
+        }
+      ]
+    }
+  ]
+}
