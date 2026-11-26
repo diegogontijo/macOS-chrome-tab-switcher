@@ -1,0 +1,25 @@
+# Tabber
+
+> Tabber makes Ctrl+Tab in Google Chrome on macOS switch tabs in most recently used (MRU) order, like Zen Browser and Firefox, instead of going to the next tab on the right. Hold Ctrl, tap Tab to move through an on-screen list of recent tabs, release Ctrl to switch.
+
+Tabber is a free, open source Chrome extension (Manifest V3) plus a Karabiner-Elements rule. Chrome does not let extensions use Ctrl+Tab (the chrome.commands API rejects the Tab key and pages never receive the shortcut), so Karabiner-Elements intercepts Ctrl+Tab at the system level, only while Chrome is frontmost, and forwards it to the extension as internal shortcuts.
+
+Key facts:
+
+- Platform: macOS with Google Chrome 121+. Requires Karabiner-Elements (free).
+- Behavior: quick Ctrl+Tab toggles between the two most recent tabs; holding Ctrl and tapping Tab walks back through recent tabs; Ctrl+Shift+Tab moves up the list; releasing Ctrl switches; Ctrl+Esc cancels.
+- Scope: tabs of the current window, same as Zen Browser.
+- Protected pages (chrome://, Chrome Web Store, New Tab) show the list in a small popup window.
+- Permissions: tabs, scripting, activeTab, favicon. No access to all websites, no network requests, no data collected.
+- Not supported yet: Windows and Linux. Other Chromium browsers are untested.
+
+## Docs
+
+- [README](https://github.com/diegogontijo/macOS-chrome-tab-switcher/blob/main/README.md): features, installation, FAQ
+- [Website](https://diegogontijo.github.io/macOS-chrome-tab-switcher/): overview and FAQ
+- [Latest release](https://github.com/diegogontijo/macOS-chrome-tab-switcher/releases/latest): extension zip and Karabiner rule
+
+## Source
+
+- [extension/background.js](https://github.com/diegogontijo/macOS-chrome-tab-switcher/blob/main/extension/background.js): MRU ordering and switching logic
+- [karabiner/tabber.json](https://github.com/diegogontijo/macOS-chrome-tab-switcher/blob/main/karabiner/tabber.json): Karabiner-Elements rule
